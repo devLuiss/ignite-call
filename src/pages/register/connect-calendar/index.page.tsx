@@ -19,6 +19,9 @@ export default function ConnectCalendar() {
     await signIn("google");
   }
 
+  async function handleNextStep() {
+    await router.push("/register/time-intervals");
+  }
   return (
     <Container>
       <Header>
@@ -55,7 +58,7 @@ export default function ConnectCalendar() {
             Não foi possível conectar sua conta do Google. Tente novamente.
           </AuthError>
         )}
-        <Button type="submit" disabled={!hasSignedIn}>
+        <Button type="submit" disabled={!hasSignedIn} onClick={handleNextStep}>
           Próximo passo
           <ArrowRight />
         </Button>
